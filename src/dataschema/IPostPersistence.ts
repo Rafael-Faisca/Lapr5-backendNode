@@ -1,3 +1,4 @@
+
 export interface IPostPersistence{
   _id: string;
   description: string;
@@ -5,4 +6,5 @@ export interface IPostPersistence{
   userId: string;
   like: string[];
   dislike: string[];
+  commentPostId: string[];
 }

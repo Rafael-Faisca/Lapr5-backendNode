@@ -1,3 +1,5 @@
+import { Comment } from "../domain/comment";
+
 export default interface ICreatePostDTO {
   id: string;
   description: string;
@@ -5,4 +7,5 @@ export default interface ICreatePostDTO {
   userId: string;
   like: string[];
   dislike: string[];
+  commentPostId: string[];
 }

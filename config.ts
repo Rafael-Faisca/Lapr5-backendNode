@@ -49,6 +49,11 @@ export default {
       name: "PostController",
       path: "../controllers/postController"
     },
+    comment: {
+      name: "CommentController",
+      path: "../controllers/commentController"
+    },
+
   },
 
   repos: {
@@ -64,6 +69,10 @@ export default {
       name: "PostRepo",
       path: "../repos/postRepo"
     },
+    comment : {
+      name: "CommentRepo",
+      path: "../repos/commentRepo"
+    }
   },
 
   services: {
@@ -74,6 +83,10 @@ export default {
     post: {
       name: "PostService",
       path: "../services/postService"
+    },
+    comment: {
+      name: "CommentService",
+      path: "../services/commentService"
     }
   },
 };

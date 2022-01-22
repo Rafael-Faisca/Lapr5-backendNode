@@ -7,6 +7,8 @@ import { Description } from "./description"
 import ICreatePostDTO from "../dto/ICreatePostDTO";
 import {Like} from "./like";
 import {Dislike} from "./dislike";
+import { CommentPostId } from "./commentPostId";
+import { Comment } from "./comment";
 
 interface PostProps{
   description: Description;
@@ -14,6 +16,7 @@ interface PostProps{
   userId: UserId;
   like : Like;
   dislike : Dislike;
+  commentPostId : CommentPostId;
 }
 
 export class Post extends AggregateRoot<PostProps> {
@@ -62,6 +65,14 @@ export class Post extends AggregateRoot<PostProps> {
     return this.props.dislike;
   }
 
+  get commentPostId(): CommentPostId {
+    return this.props.commentPostId;
+  }
+
+  set commentPostId(value: CommentPostId) {
+    this.props.commentPostId = value;
+  }
+
   private constructor(props: PostProps,id?: UniqueEntityID) {
     super(props,id);
   }
@@ -73,6 +84,7 @@ export class Post extends AggregateRoot<PostProps> {
     const userId = postDTO.userId;
     const like = postDTO.like;
     const dislike = postDTO.dislike;
+    const commentPostId = postDTO.commentPostId;
 
     if (!!description === false || description.length === 0) {
       return Result.fail<Post>('Must provide a description')
@@ -82,7 +94,8 @@ export class Post extends AggregateRoot<PostProps> {
         postTag : PostTag.create({value : postTag}).getValue(),
         userId : UserId.create(userId).getValue(),
         like: Like.create({like: like}).getValue(),
-        dislike: Dislike.create({dislike: dislike}).getValue()}, id);
+        dislike: Dislike.create({dislike: dislike}).getValue(),
+        commentPostId: CommentPostId.create({value: commentPostId}).getValue()}, id);
       return Result.ok<Post>( post )
     }
   }

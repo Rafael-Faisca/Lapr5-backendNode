@@ -20,7 +20,8 @@ export default (app: Router) => {
         postTag : Joi.string().required(),
         userId : Joi.string().required(),
         like : Joi.array().items(Joi.string()),
-        dislike : Joi.array().items(Joi.string())
+        dislike : Joi.array().items(Joi.string()),
+        commentPostId : Joi.array().items(Joi.string())
       })
     }),
     (req, res, next) => ctrl.createPost(req, res, next) );

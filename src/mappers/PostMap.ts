@@ -16,7 +16,8 @@ export class PostMap extends Mapper<Post> {
       postTag: post.postTag.value,
       userId : post.userId.value,
       like : post.like.like,
-      dislike : post.dislike.dislike
+      dislike : post.dislike.dislike,
+      commentPostId : post.commentPostId.value
     } as IPostDTO;
   }
 
@@ -38,7 +39,8 @@ export class PostMap extends Mapper<Post> {
       postTag: post.postTag.value,
       userId : post.userId.value,
       like : post.like.like,
-      dislike : post.dislike.dislike
+      dislike : post.dislike.dislike,
+      commentPostId : post.commentPostId.value
     }
     return a;
   }

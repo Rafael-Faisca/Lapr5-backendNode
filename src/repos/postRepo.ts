@@ -48,6 +48,7 @@ export default class PostRepo implements IPostRepo {
         postDocument.userId = post.userId.value;
         postDocument.like = post.like.like;
         postDocument.dislike = post.dislike.dislike;
+        postDocument.commentPostId = post.commentPostId.value;
 
         await postDocument.save();
 

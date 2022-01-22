@@ -1,3 +1,5 @@
+import { Comment } from "../domain/comment";
+
 export default interface IPostDTO {
   id: string;
   description: string;
@@ -5,4 +7,5 @@ export default interface IPostDTO {
   userId: string;
   like: string[];
   dislike: string[];
+  commentPostId: string[];
 }

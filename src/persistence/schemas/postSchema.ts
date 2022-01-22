@@ -23,6 +23,8 @@ const Post = new mongoose.Schema(
     like: [String],
 
     dislike: [String],
+
+    commentPostId: [String],
   },
   { timestamps: true },
 );

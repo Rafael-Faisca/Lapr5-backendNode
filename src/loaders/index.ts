@@ -26,7 +26,11 @@ export default async ({ expressApp }) => {
     name: 'postSchema',
     schema: '../persistence/schemas/postSchema',
   };
-
+  const commentSchema = {
+    // compare with the approach followed in repos and services
+    name: 'commentSchema',
+    schema: '../persistence/schemas/commentSchema',
+  };
   const roleController = {
     name: config.controllers.role.name,
     path: config.controllers.role.path
@@ -36,7 +40,10 @@ export default async ({ expressApp }) => {
     name: config.controllers.post.name,
     path: config.controllers.post.path
   }
-
+  const commentController = {
+    name: config.controllers.comment.name,
+    path: config.controllers.comment.path
+  }
   const roleRepo = {
     name: config.repos.role.name,
     path: config.repos.role.path
@@ -51,7 +58,10 @@ export default async ({ expressApp }) => {
     name: config.repos.post.name,
     path: config.repos.post.path
   }
-
+  const commentRepo = {
+    name: config.repos.comment.name,
+    path: config.repos.comment.path
+  }
   const roleService = {
     name: config.services.role.name,
     path: config.services.role.path
@@ -61,26 +71,34 @@ export default async ({ expressApp }) => {
     name: config.services.post.name,
     path: config.services.post.path
   }
+  const commentService = {
+    name: config.services.comment.name,
+    path: config.services.comment.path
+  }
 
   await dependencyInjectorLoader({
     mongoConnection,
     schemas: [
       userSchema,
       roleSchema,
-      postSchema
+      postSchema,
+      commentSchema
     ],
     controllers: [
       roleController,
-      postController
+      postController,
+      commentController
     ],
     repos: [
       roleRepo,
       userRepo,
-      postRepo
+      postRepo,
+      commentRepo
     ],
     services: [
       roleService,
-      postService
+      postService,
+      commentService
     ]
   });
   Logger.info('✌️ Schemas, Controllers, Repositories, Services, etc. loaded');
